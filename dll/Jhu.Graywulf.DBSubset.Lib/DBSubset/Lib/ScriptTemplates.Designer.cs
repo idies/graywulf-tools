@@ -61,7 +61,13 @@ namespace Jhu.Graywulf.DBSubset.Lib {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ⴠ‭湉敳瑲猠扵敳⁴湩潴搠獥楴慮楴湯琠扡敬਍䤠华剅⁔⑛敄瑳湩瑡潩呮扡敬⁝䥗䡔⠠䅔䱂䍏塋ഩ †⠠⑛湉敳瑲潃畬湭楌瑳⥝਍匠䱅䍅⁔⑛敓敬瑣潃畬湭楌瑳൝ 剆䵏†嬠匤畯捲呥扡敬⁝潳牵散慴汢慥楬獡圠呉⁈丨䱏䍏⥋਍嬉匤畯捲呥扡敬潊湩嵳഻ .
+        ///   Looks up a localized string similar to  -- Insert subset into destination table
+        /// INSERT [$DestinationTable] WITH (TABLOCKX)
+        ///    ([$InsertColumnList])
+        /// SELECT [$SelectColumnList]
+        /// FROM   [$SourceTable] sourcetablealias WITH (NOLOCK)
+        ///	[$SourceTableJoins];
+        /// .
         /// </summary>
         internal static string FullTableQuery {
             get {
@@ -70,7 +76,25 @@ namespace Jhu.Graywulf.DBSubset.Lib {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ⴠ‭牃慥整琠浥潰慲祲琠扡敬映牯琠敨爠湡潤⁭䑉氠獩൴ 䙉䔠䥘呓⡓匠䱅䍅⁔‪剆䵏琠浥摰⹢扤⹯祳潳橢捥獴圠䕈䕒䤠⁄‽䉏䕊呃䥟⡄❎整灭扤⸮⌣整灭牯牡楹汤獩❴⤩਍䐠佒⁐䅔䱂⁅⌣整灭牯牡楹汤獩㭴਍ⴠ䜭൏ഊ 剃䅅䕔吠䉁䕌⌠琣浥潰慲祲摩楬瑳਍⠠਍嬉吤浥呰扡敬潃畬湭嵳਍⤠഻ ਍ⴠ‭潃汬捥⁴䑉൳ 䥗䡔琠浥潰慲祲摩楬瑳畱牥⁹十਍⠠਍匉䱅䍅⁔⑛牐浩牡䭹祥潃畬湭䅳楬獡ⱝ洠獡整⹲扤⹯慒摮浯潄扵敬⤨䄠⁓慲摮浯畮扭牥਍䘉佒⁍⑛潓牵散慔汢嵥猠畯捲瑥扡敬污慩൳ऊ⑛潓牵散慔汢䩥楯獮൝ ഩ 义䕓呒⌠琣浥潰慲祲摩楬瑳圠呉⁈吨䉁佌䭃⥘਍匠䱅䍅⁔⑛牐浩牡䭹祥潃畬湭嵳਍䘠佒⁍整灭牯牡楹汤獩煴敵祲਍圠䕈䕒爠湡潤湭浵敢⁲‼⑛慓灭楬杮慆瑣牯㭝਍ഠ ⴭ䤠獮牥⁴畳獢瑥椠瑮⁯敤瑳湩瑡潩⁮慴汢൥ ਍䤠华剅⁔⑛敄瑳湩瑡潩呮扡敬⁝䥗䡔⠠䅔䱂䍏塋ഩऊ嬨䤤獮牥䍴汯浵䱮獩嵴ഩ 䕓䕌呃嬠匤汥捥䍴汯浵䱮獩嵴਍䘠佒⁍†⑛潓牵散慔汢嵥猠畯捲瑥扡敬污慩⁳䥗䡔⠠低佌䭃ഩऊ义䕎⁒佊义⌠琣浥潰慲祲摩楬瑳传⁎⑛牐浩牡䭹祥潊湩潃摮瑩潩嵮਍嬉匤畯捲呥扡敬潊湩嵳഻.
+        ///   Looks up a localized string similar to  -- Create temporary table for the random ID list
+        /// IF EXISTS( SELECT * FROM tempdb.dbo.sysobjects WHERE ID = OBJECT_ID(N&apos;tempdb..##temporaryidlist&apos;))
+        /// DROP TABLE ##temporaryidlist;
+        /// --GO
+        ///
+        /// CREATE TABLE ##temporaryidlist
+        /// (
+        ///	[$TempTableColumns]
+        /// );
+        /// 
+        /// -- Collect IDs
+        /// WITH temporaryidlistquery AS
+        /// (
+        ///	SELECT [$PrimaryKeyColumnsAlias], master.dbo.RandomDouble() AS randomnumber
+        ///	FROM [$SourceTable] sourcetablealias
+        ///	[$SourceTableJoins]
+        /// )
+        /// INSERT ##temporaryidlist WITH (TABLOCKX)
+        /// SELECT [$Prim [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string RandomSubsetQuery {
             get {
@@ -79,7 +103,9 @@ namespace Jhu.Graywulf.DBSubset.Lib {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ⴠ匭瑥楴杮䤠敤瑮瑩⁹潃畬湭਍匠呅䤠䕄呎呉彙义䕓呒嬠䐤獥楴慮楴湯慔汢嵥嬠䤤敤瑮瑩䥹獮牥却慴整㭝਍.
+        ///   Looks up a localized string similar to  --Setting Identity Column
+        /// SET IDENTITY_INSERT [$DestinationTable] [$IdentityInsertState];
+        /// .
         /// </summary>
         internal static string SetIdentityInsertQuery {
             get {

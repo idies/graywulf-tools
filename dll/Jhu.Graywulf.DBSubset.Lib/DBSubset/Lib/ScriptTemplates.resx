@@ -40,12 +40,12 @@
 		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
 	</resheader>
   <data name="FullTableQuery" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\..\sql\Jhu.Graywulf.DBSubset.FullTableQuery.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-16</value>
+    <value>..\..\..\..\sql\Jhu.Graywulf.DBSubset.FullTableQuery.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="RandomSubsetQuery" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\..\sql\Jhu.Graywulf.DBSubset.RandomSubsetQuery.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-16</value>
+    <value>..\..\..\..\sql\Jhu.Graywulf.DBSubset.RandomSubsetQuery.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="SetIdentityInsertQuery" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\..\..\..\sql\Jhu.Graywulf.DBSubset.SetIdentityInsertQuery.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-16</value>
+    <value>..\..\..\..\sql\Jhu.Graywulf.DBSubset.SetIdentityInsertQuery.sql;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
 </root>
