@@ -1,7 +1,7 @@
  -- Create temporary table for the random ID list
  IF EXISTS( SELECT * FROM tempdb.dbo.sysobjects WHERE ID = OBJECT_ID(N'tempdb..##temporaryidlist'))
  DROP TABLE ##temporaryidlist;
- --GO
+ GO
 
  CREATE TABLE ##temporaryidlist
  (

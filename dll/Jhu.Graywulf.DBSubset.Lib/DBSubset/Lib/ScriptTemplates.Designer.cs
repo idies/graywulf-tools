@@ -79,7 +79,7 @@ namespace Jhu.Graywulf.DBSubset.Lib {
         ///   Looks up a localized string similar to  -- Create temporary table for the random ID list
         /// IF EXISTS( SELECT * FROM tempdb.dbo.sysobjects WHERE ID = OBJECT_ID(N&apos;tempdb..##temporaryidlist&apos;))
         /// DROP TABLE ##temporaryidlist;
-        /// --GO
+        /// GO
         ///
         /// CREATE TABLE ##temporaryidlist
         /// (
@@ -94,7 +94,7 @@ namespace Jhu.Graywulf.DBSubset.Lib {
         ///	[$SourceTableJoins]
         /// )
         /// INSERT ##temporaryidlist WITH (TABLOCKX)
-        /// SELECT [$Prim [rest of string was truncated]&quot;;.
+        /// SELECT [$Primar [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string RandomSubsetQuery {
             get {
