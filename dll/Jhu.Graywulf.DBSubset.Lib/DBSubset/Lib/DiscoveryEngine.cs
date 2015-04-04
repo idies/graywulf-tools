@@ -59,16 +59,17 @@ namespace Jhu.Graywulf.DBSubset.Lib
             int q = 0;
             foreach (smo::DependencyCollectionNode dep in depcoll)
             {
-                //Console.WriteLine(dep.Urn.GetAttribute("Name"));
-                //Console.WriteLine(dep.Urn.ToString());
-                smo::Table t = db.Tables[dep.Urn.GetAttribute("Name"), dep.Urn.GetAttribute("Schema")];
+                if (dep.Urn.Type == "Table")
+                {
+                    smo::Table t = db.Tables[dep.Urn.GetAttribute("Name"), dep.Urn.GetAttribute("Schema")];
 
-                Table nt = new Table(t, subsetDefinition);
+                    Table nt = new Table(t, subsetDefinition);
 
-                nt.Order = q;
-                subsetDefinition.Tables.Add(nt.FullyQualifiedName, nt);
+                    nt.Order = q;
+                    subsetDefinition.Tables.Add(nt.FullyQualifiedName, nt);
 
-                q++;
+                    q++;
+                }
             }
         }
 
