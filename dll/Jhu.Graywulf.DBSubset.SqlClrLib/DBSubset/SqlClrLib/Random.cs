@@ -13,7 +13,9 @@ public partial class UserDefinedFunctions
     [ThreadStatic]
     private static Random random;
 
-    [Microsoft.SqlServer.Server.SqlFunction(DataAccess = DataAccessKind.None, IsDeterministic = false, IsPrecise = false)]
+    [Microsoft.SqlServer.Server.SqlFunction(
+        Name = "gw.Random",
+        DataAccess = DataAccessKind.None, IsDeterministic = false, IsPrecise = false)]
     public static SqlDouble RandomDouble()
     {
         if (random == null)
@@ -27,7 +29,9 @@ public partial class UserDefinedFunctions
         return new SqlDouble(random.NextDouble());
     }
 
-    [Microsoft.SqlServer.Server.SqlFunction(DataAccess = DataAccessKind.None, IsDeterministic = false, IsPrecise = true)]
+    [Microsoft.SqlServer.Server.SqlFunction(
+        Name = "gw.RandomInt",
+        DataAccess = DataAccessKind.None, IsDeterministic = false, IsPrecise = true)]
     public static SqlInt32 RandomInt(SqlInt32 max)
     {
         if (random == null)
