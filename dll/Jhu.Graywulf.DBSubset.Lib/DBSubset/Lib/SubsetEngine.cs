@@ -201,7 +201,7 @@ namespace Jhu.Graywulf.DBSubset.Lib
                 foreach (string pk in table.PrimaryKeyColumns)
                 {
                     primarykeyjoincondition +=
-                        String.Format(" AND ##temporaryidlist.{0} = sourcetablealias.{0}", pk);
+                        String.Format(" AND ##temporaryidlist.[{0}] = sourcetablealias.[{0}]", pk);
                 }
 
                 sql.Replace("[$PrimaryKeyJoinCondition]", primarykeyjoincondition.Substring(5));

@@ -129,6 +129,12 @@ namespace Jhu.Graywulf.DBSubset.Lib
             this.referencedBy = new List<Table>();
         }
 
+        private string GetDataTypeString(smo::DataType type)
+        {
+            var dt = Jhu.Graywulf.Schema.SqlServer.SqlServerDataset.CreateDataType(type);
+            return dt.NameWithLength;
+        }
+
         private void LoadFromSmoObject(smo::Table t, SubsetDefinition subsetDefinition)
         {
             this.Schema = t.Schema;
@@ -149,7 +155,7 @@ namespace Jhu.Graywulf.DBSubset.Lib
                     foreach (smo::IndexedColumn ic in i.IndexedColumns)
                     {
                         this.primaryKeyColumns.Add(ic.Name);
-                        this.primaryKeyColumnTypes.Add(t.Columns[ic.Name].DataType.ToString().ToLower());
+                        this.primaryKeyColumnTypes.Add(GetDataTypeString(t.Columns[ic.Name].DataType));
 
                         if (t.Columns[ic.Name].Identity)
                         {

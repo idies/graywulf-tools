@@ -14,7 +14,7 @@ public partial class UserDefinedFunctions
     private static Random random;
 
     [Microsoft.SqlServer.Server.SqlFunction(
-        Name = "gw.Random",
+        Name = "gw.RandomDouble",
         DataAccess = DataAccessKind.None, IsDeterministic = false, IsPrecise = false)]
     public static SqlDouble RandomDouble()
     {

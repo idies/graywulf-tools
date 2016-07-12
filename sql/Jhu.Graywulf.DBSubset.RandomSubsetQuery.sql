@@ -11,7 +11,7 @@
  -- Collect IDs
  WITH temporaryidlistquery AS
  (
-	SELECT [$PrimaryKeyColumnsAlias], dbo.RandomDouble() AS randomnumber
+	SELECT [$PrimaryKeyColumnsAlias], gw.RandomDouble() AS randomnumber
 	FROM [$SourceTable] sourcetablealias
 	[$SourceTableJoins]
  )
