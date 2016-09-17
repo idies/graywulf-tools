@@ -89,12 +89,12 @@ namespace Jhu.Graywulf.DBSubset.Lib {
         /// -- Collect IDs
         /// WITH temporaryidlistquery AS
         /// (
-        ///	SELECT [$PrimaryKeyColumnsAlias], dbo.RandomDouble() AS randomnumber
+        ///	SELECT [$PrimaryKeyColumnsAlias], gw.RandomDouble() AS randomnumber
         ///	FROM [$SourceTable] sourcetablealias
         ///	[$SourceTableJoins]
         /// )
         /// INSERT ##temporaryidlist WITH (TABLOCKX)
-        /// SELECT [$PrimaryKeyCol [rest of string was truncated]&quot;;.
+        /// SELECT [$PrimaryKeyColu [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string RandomSubsetQuery {
             get {
