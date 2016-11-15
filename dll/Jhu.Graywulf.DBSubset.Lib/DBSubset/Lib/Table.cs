@@ -132,7 +132,7 @@ namespace Jhu.Graywulf.DBSubset.Lib
         private string GetDataTypeString(smo::DataType type)
         {
             var dt = Jhu.Graywulf.Schema.SqlServer.SqlServerDataset.CreateDataType(type);
-            return dt.TypeNameWithLength;
+            return dt.NameWithLength;
         }
 
         private void LoadFromSmoObject(smo::Table t, SubsetDefinition subsetDefinition)
