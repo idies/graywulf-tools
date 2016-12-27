@@ -97,6 +97,8 @@ namespace Jhu.Graywulf.DBSubset.Lib
         {
             StringBuilder sql = new StringBuilder();
 
+            sql.Append(ScriptTemplates.TruncateTableQuery.Replace("[$SourceTable]", GetSourceTableName(table)));
+
             if (table.HasIdentityProperty)
             {
                 sql.Append(ScriptTemplates.SetIdentityInsertQuery.Replace("[$IdentityInsertState]", "ON"));
@@ -142,12 +144,7 @@ namespace Jhu.Graywulf.DBSubset.Lib
                         GetCommaSeparatedList(table.PrimaryKeyColumns, "sourcetablealias"));
             // --- Source table name 
 
-            sql.Replace("[$SourceTable]",
-                        String.Format("{0}[{1}].[{2}].[{3}]",
-                                      GetLinkedServerName(),
-                                      subsetDefinition.SourceDatabaseConnectionString.InitialCatalog,
-                                      table.Schema,
-                                      table.Name));
+            sql.Replace("[$SourceTable]", GetSourceTableName(table));
 
             sql.Replace("[$InsertColumnList]", GetCommaSeparatedList(table.Columns, null));
             sql.Replace("[$SelectColumnList]", GetCommaSeparatedList(table.Columns, "sourcetablealias"));
@@ -208,6 +205,15 @@ namespace Jhu.Graywulf.DBSubset.Lib
             }
 
             return sql.ToString();
+        }
+
+        private string GetSourceTableName(Table table)
+        {
+            return String.Format("{0}[{1}].[{2}].[{3}]",
+                GetLinkedServerName(),
+                subsetDefinition.SourceDatabaseConnectionString.InitialCatalog,
+                table.Schema,
+                table.Name);
         }
 
         /*

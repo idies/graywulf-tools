@@ -40,6 +40,7 @@ namespace Jhu.Graywulf.DBSubset.UI
 
         private void RefreshForm()
         {
+            table.Visible = false;
             SuspendLayout();
 
             DestroyForm();
@@ -108,6 +109,7 @@ namespace Jhu.Graywulf.DBSubset.UI
             }
 
             ResumeLayout();
+            table.Visible = true;
         }
 
         private void DestroyForm()
@@ -394,37 +396,54 @@ namespace Jhu.Graywulf.DBSubset.UI
         }
 
         private void NonReferencedTableSubSet()
-        {   
-                foreach (Table t in tables)
-                {
-                   
-                        List<Table> referenced = new List<Table>(DiscoveryEngine.FindAllReferencedTables(t));
-                        if (referenced.Count == 0)
-                        {
-                            if (t.RowCount > 100000)
-	                        {
-		                            t.SamplingMethod = SamplingMethod.Random;
-                                    t.SamplingFactor = double.Parse(textRandom.Text);
-	                        }
-                            else
-	                        {
-                                t.SamplingMethod = SamplingMethod.FullTable;
-                                   
-	                        }
-                            
-                        }
-                  }
-                
-            
-        RefreshForm();
-        }
-        
-        private void SetRandom()
         {
             foreach (Table t in tables)
             {
-                t.SamplingFactor = double.Parse(textRandom.Text);
-                
+
+                List<Table> referenced = new List<Table>(DiscoveryEngine.FindAllReferencedTables(t));
+                if (referenced.Count == 0)
+                {
+                    if (t.RowCount > 100000)
+                    {
+                        t.SamplingMethod = SamplingMethod.Random;
+                        t.SamplingFactor = double.Parse(textRandom.Text);
+                    }
+                    else
+                    {
+                        t.SamplingMethod = SamplingMethod.FullTable;
+
+                    }
+
+                }
+            }
+
+
+            RefreshForm();
+        }
+
+        private void SetRandom(double samplingFactor, long limit)
+        {
+            foreach (Table t in tables)
+            {
+                int q = 0;
+                double factor = samplingFactor;
+                long target = (long)(t.RowCount * factor);
+
+                while (target < limit && factor < 1.0)
+                {
+                    factor *= 10;
+                    target = (long)(t.RowCount * factor);
+                }
+
+                if (factor < 1.0)
+                {
+                    t.SamplingMethod = SamplingMethod.Random;
+                    t.SamplingFactor = factor;
+                }
+                else
+                {
+                    t.SamplingMethod = SamplingMethod.FullTable;
+                }
             }
             RefreshForm();
         }
@@ -499,13 +518,13 @@ namespace Jhu.Graywulf.DBSubset.UI
             }
             else if (e.ClickedItem == RandomButton)
             {
-                SetRandom();
+                SetRandom(double.Parse(textRandom.Text), long.Parse(textLimit.Text));
             }
         }
 
-        
 
-       
+
+
 
         private void menu_Click(object sender, EventArgs e)
         {

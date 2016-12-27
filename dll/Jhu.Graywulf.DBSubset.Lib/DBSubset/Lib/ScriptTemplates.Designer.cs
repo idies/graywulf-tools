@@ -112,5 +112,14 @@ namespace Jhu.Graywulf.DBSubset.Lib {
                 return ResourceManager.GetString("SetIdentityInsertQuery", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string TruncateTableQuery {
+            get {
+                return ResourceManager.GetString("TruncateTableQuery", resourceCulture);
+            }
+        }
     }
 }

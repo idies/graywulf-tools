@@ -49,6 +49,8 @@
             this.executeButton = new System.Windows.Forms.ToolStripButton();
             this.scriptButton = new System.Windows.Forms.ToolStripButton();
             this.NonReferencedTableButton = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.RandomButton = new System.Windows.Forms.ToolStripButton();
             this.textRandom = new System.Windows.Forms.ToolStripTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
@@ -57,7 +59,8 @@
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.menuFileExit = new System.Windows.Forms.ToolStripMenuItem();
-            this.RandomButton = new System.Windows.Forms.ToolStripButton();
+            this.textLimit = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.table.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -86,7 +89,7 @@
             this.table.RowCount = 2;
             this.table.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.table.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.table.Size = new System.Drawing.Size(828, 17);
+            this.table.Size = new System.Drawing.Size(1181, 17);
             this.table.TabIndex = 0;
             // 
             // samplingFactorLabel
@@ -94,7 +97,7 @@
             this.samplingFactorLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.samplingFactorLabel.AutoSize = true;
             this.samplingFactorLabel.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.samplingFactorLabel.Location = new System.Drawing.Point(471, 0);
+            this.samplingFactorLabel.Location = new System.Drawing.Point(824, 0);
             this.samplingFactorLabel.Name = "samplingFactorLabel";
             this.samplingFactorLabel.Padding = new System.Windows.Forms.Padding(2);
             this.samplingFactorLabel.Size = new System.Drawing.Size(114, 17);
@@ -106,7 +109,7 @@
             this.samplingMethodLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.samplingMethodLabel.AutoSize = true;
             this.samplingMethodLabel.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.samplingMethodLabel.Location = new System.Drawing.Point(351, 0);
+            this.samplingMethodLabel.Location = new System.Drawing.Point(704, 0);
             this.samplingMethodLabel.Name = "samplingMethodLabel";
             this.samplingMethodLabel.Padding = new System.Windows.Forms.Padding(2);
             this.samplingMethodLabel.Size = new System.Drawing.Size(114, 17);
@@ -121,7 +124,7 @@
             this.tableNameLabel.Location = new System.Drawing.Point(35, 0);
             this.tableNameLabel.Name = "tableNameLabel";
             this.tableNameLabel.Padding = new System.Windows.Forms.Padding(2);
-            this.tableNameLabel.Size = new System.Drawing.Size(310, 17);
+            this.tableNameLabel.Size = new System.Drawing.Size(663, 17);
             this.tableNameLabel.TabIndex = 0;
             this.tableNameLabel.Text = "Table Name";
             // 
@@ -130,7 +133,7 @@
             this.dataSpaceUsedLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.dataSpaceUsedLabel.AutoSize = true;
             this.dataSpaceUsedLabel.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.dataSpaceUsedLabel.Location = new System.Drawing.Point(591, 0);
+            this.dataSpaceUsedLabel.Location = new System.Drawing.Point(944, 0);
             this.dataSpaceUsedLabel.Name = "dataSpaceUsedLabel";
             this.dataSpaceUsedLabel.Padding = new System.Windows.Forms.Padding(2);
             this.dataSpaceUsedLabel.Size = new System.Drawing.Size(114, 17);
@@ -142,7 +145,7 @@
             this.rowCountLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.rowCountLabel.AutoSize = true;
             this.rowCountLabel.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.rowCountLabel.Location = new System.Drawing.Point(711, 0);
+            this.rowCountLabel.Location = new System.Drawing.Point(1064, 0);
             this.rowCountLabel.Name = "rowCountLabel";
             this.rowCountLabel.Padding = new System.Windows.Forms.Padding(2);
             this.rowCountLabel.Size = new System.Drawing.Size(114, 17);
@@ -175,11 +178,14 @@
             this.executeButton,
             this.scriptButton,
             this.NonReferencedTableButton,
+            this.toolStripSeparator6,
             this.RandomButton,
-            this.textRandom});
+            this.textRandom,
+            this.toolStripLabel1,
+            this.textLimit});
             this.toolStrip.Location = new System.Drawing.Point(0, 24);
             this.toolStrip.Name = "toolStrip";
-            this.toolStrip.Size = new System.Drawing.Size(832, 25);
+            this.toolStrip.Size = new System.Drawing.Size(1185, 25);
             this.toolStrip.TabIndex = 1;
             this.toolStrip.Text = "toolStrip1";
             this.toolStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip_ItemClicked);
@@ -271,6 +277,19 @@
             this.NonReferencedTableButton.Size = new System.Drawing.Size(101, 22);
             this.NonReferencedTableButton.Text = "NonRefTables";
             // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 25);
+            // 
+            // RandomButton
+            // 
+            this.RandomButton.Image = ((System.Drawing.Image)(resources.GetObject("RandomButton.Image")));
+            this.RandomButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.RandomButton.Name = "RandomButton";
+            this.RandomButton.Size = new System.Drawing.Size(115, 22);
+            this.RandomButton.Text = "SetSampleFactor";
+            // 
             // textRandom
             // 
             this.textRandom.Name = "textRandom";
@@ -286,7 +305,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 49);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(832, 328);
+            this.panel1.Size = new System.Drawing.Size(1185, 487);
             this.panel1.TabIndex = 2;
             // 
             // menuStrip
@@ -297,7 +316,7 @@
             this.fileToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(832, 24);
+            this.menuStrip.Size = new System.Drawing.Size(1185, 24);
             this.menuStrip.TabIndex = 3;
             this.menuStrip.Text = "menuStrip";
             // 
@@ -336,19 +355,23 @@
             this.menuFileExit.Text = "E&xit";
             this.menuFileExit.Click += new System.EventHandler(this.menu_Click);
             // 
-            // RandomButton
+            // textLimit
             // 
-            this.RandomButton.Image = ((System.Drawing.Image)(resources.GetObject("RandomButton.Image")));
-            this.RandomButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.RandomButton.Name = "RandomButton";
-            this.RandomButton.Size = new System.Drawing.Size(115, 20);
-            this.RandomButton.Text = "SetSampleFactor";
+            this.textLimit.Name = "textLimit";
+            this.textLimit.Size = new System.Drawing.Size(100, 25);
+            this.textLimit.Text = "10000";
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(37, 22);
+            this.toolStripLabel1.Text = "Limit:";
             // 
             // SubsetDefinitionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(832, 377);
+            this.ClientSize = new System.Drawing.Size(1185, 536);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.menuStrip);
@@ -399,5 +422,8 @@
         private System.Windows.Forms.ToolStripButton NonReferencedTableButton;
         private System.Windows.Forms.ToolStripTextBox textRandom;
         private System.Windows.Forms.ToolStripButton RandomButton;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.ToolStripTextBox textLimit;
     }
 }
