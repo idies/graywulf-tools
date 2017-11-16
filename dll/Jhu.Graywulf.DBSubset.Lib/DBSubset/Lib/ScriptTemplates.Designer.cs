@@ -114,7 +114,11 @@ namespace Jhu.Graywulf.DBSubset.Lib {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to  -- Insert subset into destination table
+        /// TRUNCATE TABLE [$DestinationTable];
+        ///
+        /// GO
+        ///.
         /// </summary>
         internal static string TruncateTableQuery {
             get {
