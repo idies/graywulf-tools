@@ -131,7 +131,7 @@ namespace Jhu.Graywulf.DBSubset.Lib
 
         private string GetDataTypeString(smo::DataType type)
         {
-            var dt = Jhu.Graywulf.Schema.SqlServer.SqlServerDataset.CreateDataType(type);
+            var dt = Jhu.Graywulf.Sql.Schema.SqlServer.SqlServerDataset.CreateDataType(type);
             return dt.TypeNameWithLength;
         }
 
